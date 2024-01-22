@@ -2,12 +2,10 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.shortcuts import render
-import requests
-import time
-import win32com.client
+
 from .url_conf import *
 
-speaker = win32com.client.Dispatch("SAPI.SpVoice")
+
 
 def index(request):
     if request.method == 'POST':

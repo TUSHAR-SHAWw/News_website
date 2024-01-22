@@ -4,9 +4,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render
 import requests
 import time
-import win32com.client
 
-speaker = win32com.client.Dispatch("SAPI.SpVoice")
 def make_url(user, country='in'):
     category_list = {'3': 'business', '4': 'sports', '5': 'health', '6': 'entertainment'}
 
@@ -43,8 +41,8 @@ def get_articles(url):
                     'description': description,
                     'url': url,
                 })
-                print(f"{title}\nAuthor: {author}\n{description}\nLink: {url}\n\n")
-                time.sleep(0.10)
+                # print(f"{title}\nAuthor: {author}\n{description}\nLink: {url}\n\n")
+                # time.sleep(0.10)
         elif 'sources' in data:
             sources = data['sources']
             for i, source in enumerate(sources):
@@ -56,12 +54,12 @@ def get_articles(url):
                     'description': description,
                     'url': url,
                 })
-                print(f"{name}\n{description}\nLink: {url}\n\n")
-                time.sleep(0.10)
+                # print(f"{name}\n{description}\nLink: {url}\n\n")
+                # time.sleep(0.10)
         else:
             raise ValueError('No articles or sources found in the response')
 
-        speaker.Speak('Here are today\'s articles')
+        
 
     except Exception as e:
         print(f"Error processing response: {e}")
