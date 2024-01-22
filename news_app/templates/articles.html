@@ -1,0 +1,18 @@
+{%extends "base.html" %}
+{%block start%}
+ <main>
+        {% for article in articles %}
+            <article class='p-1 mx-3 mt-2'>
+                {% if article.title %}
+                <h2>{{ article.title }}</h2>
+                {% else%}
+                <h2>{{ article.name }}</h2>
+                {% endif%}
+                <p>Author: {{ article.author }}</p>
+                <p>{{ article.description }}</p>
+                <p>Link: <a href="{{ article.url }}" target="_blank">{{ article.url }}</a></p>
+                <hr>
+            </article>
+        {% endfor %}
+    </main>
+{% endblock%}
